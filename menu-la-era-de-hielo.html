@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explora el menú de La Era de Hielo Granizados con y sin licor, cremosos, toppings y enchilados.">
+<meta name="theme-color" content="#071f31">
+<title>La Era de Hielo | Granizados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/menu/menu.css">
+</head>
+<body>
+<a class="skip-link" href="#sabores">Saltar al menú</a>
+<header class="site-header">
+  <div class="page">
+    <a class="brand" href="#inicio" aria-label="La Era de Hielo">
+      <img src="assets/menu/brand-logo.png" width="504" height="495" alt="">
+      <span>La Era de Hielo <small>Granizados</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Menú principal">
+      <a href="#sabores">Sabores</a>
+      <a href="#toppings">Toppings</a>
+      <a href="#enchilados">Enchilados</a>
+      <a href="#precios">Precios</a>
+      <a href="#parchar">Para parchar</a>
+    </nav>
+    <div class="header-social">
+      <a class="icon-link" href="https://www.instagram.com/laeradehielo_granizados/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de La Era de Hielo">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="action header-order" href="https://wa.me/573135520844" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 11.8a8.7 8.7 0 0 1-12.9 7.7L4 20.6l1.1-3.8a8.7 8.7 0 1 1 15.7-5Z"/><path d="M9.2 8.2c-.6-.6-1.4.3-1.4 1.2 0 2.4 2.7 5.4 5.7 6.1 1 .2 2.1-.5 2.1-1.2 0-.4-1.7-1.4-2-1.4-.4 0-.7.7-1.1.8-1 .2-2.9-1.7-3-2.6 0-.3.6-.5.6-1 0-.3-.6-1.6-.9-1.9Z" fill="currentColor" stroke="none"/></svg>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner page">
+      <div class="hero-copy">
+        <p class="eyebrow">Menú de granizados</p>
+        <h1 id="hero-title" class="display">La Era de <span>Hielo</span></h1>
+        <p class="hero-description">Granizados con y sin licor, sabores cremosos y toppings para armar tu vaso a tu gusto.</p>
+        <div class="hero-actions">
+          <a class="action primary" href="#sabores">Explorar el menú <span aria-hidden="true">↓</span></a>
+          <a class="action secondary" href="#enchilados">Ver enchilados</a>
+        </div>
+      </div>
+
+      <div class="hero-stage">
+        <img src="assets/menu/granizados-hero.webp" alt="Granizados verde, azul y fucsia con dulces, gomitas y el logo de La Era de Hielo" width="1448" height="1086" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section id="sabores" class="page" aria-labelledby="sabores-title">
+    <div class="section-head">
+      <h2 id="sabores-title" class="display">Arma tu granizado</h2>
+      <p>Elige el sabor y el tamaño de tu granizado y combínalo con tus toppings favoritos.</p>
+    </div>
+
+    <div class="builder-layout">
+      <div>
+        <div class="menu-controls">
+          <div class="segment" role="group" aria-label="Tipo de granizado">
+            <button type="button" data-mode="todos" aria-controls="flavorGrid" aria-pressed="false">Todos</button>
+            <button type="button" data-mode="sin" aria-controls="flavorGrid" aria-pressed="true">Sin licor</button>
+            <button type="button" data-mode="con" aria-controls="flavorGrid" aria-pressed="false">Con licor</button>
+            <button type="button" data-mode="cremosos" aria-controls="flavorGrid" aria-pressed="false">Cremosos</button>
+          </div>
+          <div class="flavor-search">
+            <label for="flavorSearch">Buscar sabor</label>
+            <input type="search" id="flavorSearch" placeholder="Ej. maracuyá" aria-controls="flavorGrid" autocomplete="off">
+          </div>
+        </div>
+        <p id="flavorStatus" class="search-status" role="status"></p>
+        <div id="flavorGrid" class="flavor-grid"></div>
+        <p id="flavorEmpty" class="flavor-empty" hidden>Prueba otro nombre o elige Todos.</p>
+        <p id="ageNote" class="age-note" hidden>La venta de granizados con licor es exclusiva para mayores de edad.</p>
+      </div>
+
+      <aside id="tu-mezcla" class="mix-panel" aria-labelledby="mix-title">
+        <div class="mix-kicker">Tu mezcla</div>
+        <h3 id="mix-title">Lulo</h3>
+        <button class="mix-image-wrap mix-photo-button" type="button" data-photo="mix-title" aria-haspopup="dialog" aria-label="Ampliar foto de Lulo">
+          <img id="mixImage" src="assets/menu/sin-lulo.png" alt="">
+          <span class="photo-label">Ampliar foto</span>
+        </button>
+
+        <div class="control-block">
+          <div class="control-title">Tamaño</div>
+          <div class="choice-row" role="group" aria-label="Tamaño del granizado">
+            <button type="button" data-size="9" aria-pressed="true">9 onz</button>
+            <button type="button" data-size="12" aria-pressed="false">12 onz</button>
+          </div>
+        </div>
+
+        <div class="control-block">
+          <div class="control-title">Toppings</div>
+          <div id="selectedToppings" class="selected-list" aria-live="polite">
+            <span class="pill">A tu gusto</span>
+          </div>
+          <a class="section-link" href="#toppings">Elegir toppings</a>
+        </div>
+
+        <div class="mix-price" aria-live="polite">
+          <span id="priceLabel">Sin licor · 9 onz</span>
+          <strong id="mixPrice">$10.000</strong>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="toppings" class="page" aria-labelledby="toppings-title">
+    <div class="section-head">
+      <h2 id="toppings-title" class="display">Toppings</h2>
+      <p>Toca tus favoritos para agregarlos a tu mezcla. <a class="section-link" href="#tu-mezcla">Ver mi mezcla</a></p>
+    </div>
+    <div id="toppingsGrid" class="toppings-grid"></div>
+  </section>
+
+  <section id="enchilados" class="page" aria-labelledby="enchilados-title">
+    <div class="section-head">
+      <h2 id="enchilados-title" class="display">Enchilados</h2>
+    </div>
+
+    <div class="specials-grid">
+      <article class="special-card" aria-labelledby="cuat-enchilado-title">
+        <button class="special-photo" type="button" data-photo="cuat-enchilado-title" aria-haspopup="dialog" aria-label="Ampliar foto de CuatEnchilado">
+          <img src="assets/menu/cuat-enchilado.png" alt="Lata Los Cuates con una copa de gomitas y borde de chile" loading="lazy" decoding="async">
+          <span class="photo-label">Ampliar foto</span>
+        </button>
+        <div class="special-copy">
+          <h3 id="cuat-enchilado-title">CuatEnchilado</h3>
+          <p>Bebida con licor, gomitas y borde enchilado.</p>
+          <dl class="special-price">
+            <div>
+              <dt>Precio</dt>
+              <dd id="precio-cuat-enchilado" class="special-price-value">$9.000</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="special-card" aria-labelledby="gomitas-enchiladas-title">
+        <button class="special-photo" type="button" data-photo="gomitas-enchiladas-title" aria-haspopup="dialog" aria-label="Ampliar foto de Gomitas enchiladas">
+          <img src="assets/menu/gomitas-enchiladas.png" alt="Gomitas surtidas cubiertas de chile" loading="lazy" decoding="async">
+          <span class="photo-label">Ampliar foto</span>
+        </button>
+        <div class="special-copy">
+          <h3 id="gomitas-enchiladas-title">Gomitas enchiladas</h3>
+          <p>Gomitas surtidas con un toque picante.</p>
+          <dl id="precio-gomitas-enchiladas" class="special-price">
+            <div>
+              <dt>Mediano</dt>
+              <dd class="special-price-value">$5.000</dd>
+            </div>
+            <div>
+              <dt>Grande</dt>
+              <dd class="special-price-value">$10.000</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="precios" class="page" aria-labelledby="precios-title">
+    <div class="section-head">
+      <h2 id="precios-title" class="display">Menú de precios</h2>
+      <p>Los valores cambian por tamaño, licor y preparación cremosa.</p>
+    </div>
+
+    <div class="prices-layout">
+      <div class="price-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Tamaño</th>
+              <th scope="col">Sin licor</th>
+              <th scope="col">Con licor</th>
+              <th scope="col">Cremoso sin licor</th>
+              <th scope="col">Cremoso con licor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9 onz</td>
+              <td class="price">$10.000</td>
+              <td class="price">$12.000</td>
+              <td class="price">$13.000</td>
+              <td class="price">$15.000</td>
+            </tr>
+            <tr>
+              <td>12 onz</td>
+              <td class="price">$12.000</td>
+              <td class="price">$14.000</td>
+              <td class="price">$15.000</td>
+              <td class="price">$17.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="parchar" class="combo-panel" aria-labelledby="parchar-title">
+        <h3 id="parchar-title">Para parchar</h3>
+        <div class="combo-list">
+          <div class="combo">
+            <strong>Mero Tote</strong>
+            <span>$40.000</span>
+          </div>
+          <div class="combo">
+            <strong>Divorcio</strong>
+            <span>$65.000</span>
+          </div>
+          <div class="combo">
+            <strong>Parche Tranqui</strong>
+            <span>$115.000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="product-dialog" id="productDialog" aria-labelledby="productDialogTitle">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="productDialogTitle"></h2>
+        <form method="dialog">
+          <button class="dialog-close" type="submit" autofocus>Cerrar</button>
+        </form>
+      </div>
+      <img id="productDialogImage" src="assets/menu/sin-lulo.png" alt="" decoding="async">
+      <a id="productDialogContact" class="action primary" href="https://wa.me/573135520844" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+    </div>
+  </dialog>
+</main>
+
+<footer>
+  <div class="page">
+    <div>
+      <strong>La Era de Hielo</strong>
+      <span>Granizados</span>
+    </div>
+    <nav class="footer-nav" aria-label="Contacto y navegación">
+      <a href="https://www.instagram.com/laeradehielo_granizados/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://wa.me/573135520844" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const flavors = {
+    sin: [
+      { id:"sin-lulo", name:"Lulo", img:"assets/menu/sin-lulo.png", accent:"#9ee447", meta:"Sin licor" },
+      { id:"sin-mora-azul", name:"Mora Azul", img:"assets/menu/sin-mora-azul.png", accent:"#2d72e8", meta:"Sin licor" },
+      { id:"sin-sandia-cereza", name:"Sandía Cereza", img:"assets/menu/sin-sandia-cereza.png", accent:"#e83d65", meta:"Sin licor" },
+      { id:"sin-mango-biche", name:"Mango Biche", img:"assets/menu/sin-mango-biche.png", accent:"#a5dd3d", meta:"Sin licor" },
+      { id:"sin-bombon-uva", name:"Bombón Uva", img:"assets/menu/sin-bombon-uva.png", accent:"#8d50db", meta:"Sin licor" },
+      { id:"sin-maracuya", name:"Maracuyá", img:"assets/menu/sin-maracuya.png", accent:"#ffc63a", meta:"Sin licor" },
+      { id:"sin-maracumango", name:"Maracumango", img:"assets/menu/sin-maracumango.png", accent:"#a8d64b", meta:"Sin licor" },
+      { id:"sin-bombon-cereza", name:"Bombón Cereza", img:"assets/menu/sin-bombon-cereza.png", accent:"#ef3f5a", meta:"Sin licor" }
+    ],
+    con: [
+      { id:"con-toxica", name:"Tóxica", img:"assets/menu/con-toxica.png", accent:"#7d4ce4", meta:"Con licor" },
+      { id:"con-paraiso", name:"Paraíso", img:"assets/menu/con-paraiso.png", accent:"#aa66df", meta:"Con licor" },
+      { id:"con-smirnoff-cereza", name:"Smirnoff Cereza", img:"assets/menu/con-smirnoff-cereza.png", accent:"#e83d65", meta:"Con licor" },
+      { id:"con-smirnoff-lulo", name:"Smirnoff Lulo", img:"assets/menu/con-smirnoff-lulo.png", accent:"#77d74a", meta:"Con licor" },
+      { id:"con-smirnoff-spicy", name:"Smirnoff Spicy", img:"assets/menu/con-smirnoff-spicy.png", accent:"#ff8a35", meta:"Con licor" },
+      { id:"con-dulce-pecado", name:"Dulce Pecado", img:"assets/menu/con-dulce-pecado.png", accent:"#f24a5f", meta:"Con licor" },
+      { id:"con-grinch", name:"Grinch", img:"assets/menu/con-grinch.png", accent:"#67d448", meta:"Con licor" }
+    ],
+    cremosos: [
+      { id:"cremoso-mangonada-enchilada", name:"Mangonada Enchilada", img:"assets/menu/cremoso-mangonada-enchilada.png", accent:"#ff8a35", meta:"Cremoso sin licor" },
+      { id:"cremoso-alpinito-fresa", name:"Alpinito Fresa", img:"assets/menu/cremoso-alpinito-fresa.png", accent:"#f26d9d", meta:"Cremoso sin licor" },
+      { id:"cremoso-capuchino", name:"Capuchino", img:"assets/menu/cremoso-capuchino.png", accent:"#8d6748", meta:"Cremoso sin licor" },
+      { id:"cremoso-crema-whisky", name:"Crema y Whisky", img:"assets/menu/cremoso-crema-whisky.png", accent:"#c9a15a", meta:"Cremoso con licor" },
+      { id:"cremoso-coco-loco", name:"Coco Loco", img:"assets/menu/cremoso-coco-loco.png", accent:"#4fc3a1", meta:"Cremoso con licor" }
+    ]
+  };
+
+  const toppings = [
+    { id:"top-lecherita", name:"Lecherita", img:"assets/menu/top-lecherita.png" },
+    { id:"top-oreo", name:"Oreo", img:"assets/menu/top-oreo.png" },
+    { id:"top-aros-frunas", name:"Aros Frunas", img:"assets/menu/top-aros-frunas.png" },
+    { id:"top-gusanitos-acidos", name:"Gusanitos Ácidos", img:"assets/menu/top-gusanitos-acidos.png" },
+    { id:"top-tajin", name:"Tajín", img:"assets/menu/top-tajin.png" },
+    { id:"top-piazza", name:"Piazza", img:"assets/menu/top-piazza.png" },
+    { id:"top-oka-loka", name:"Oka Loka", img:"assets/menu/top-oka-loka.png" },
+    { id:"top-tubitos-acidos", name:"Tubitos Ácidos", img:"assets/menu/top-tubitos-acidos.png" },
+    { id:"top-banderitas", name:"Banderitas", img:"assets/menu/top-banderitas.png" },
+    { id:"top-chupeta-labios", name:"Chupeta Labios", img:"assets/menu/top-chupeta-labios.png" },
+    { id:"top-tiburones", name:"Tiburones", img:"assets/menu/top-tiburones.png" },
+    { id:"top-chamoy", name:"Chamoy", img:"assets/menu/top-chamoy.png" },
+    { id:"top-perlas-explosivas", name:"Perlas Explosivas", img:"assets/menu/top-perlas-explosivas.png" }
+  ];
+
+  const prices = {
+    "9": { sin:10000, con:12000, cremosoSin:13000, cremosoCon:15000 },
+    "12": { sin:12000, con:14000, cremosoSin:15000, cremosoCon:17000 }
+  };
+
+  const priceKeys = {
+    "Sin licor": "sin",
+    "Con licor": "con",
+    "Cremoso sin licor": "cremosoSin",
+    "Cremoso con licor": "cremosoCon"
+  };
+  const allFlavors = Object.values(flavors).flat();
+  const state = {
+    mode: "sin",
+    flavorId: "sin-lulo",
+    size: "9",
+    toppings: []
+  };
+
+  const modeButtons = document.querySelectorAll("[data-mode]");
+  const sizeButtons = document.querySelectorAll("[data-size]");
+  const flavorSearch = document.getElementById("flavorSearch");
+  const flavorGrid = document.getElementById("flavorGrid");
+  const flavorStatus = document.getElementById("flavorStatus");
+  const flavorEmpty = document.getElementById("flavorEmpty");
+  const toppingsGrid = document.getElementById("toppingsGrid");
+  const selectedToppings = document.getElementById("selectedToppings");
+  const mixTitle = document.getElementById("mix-title");
+  const mixImage = document.getElementById("mixImage");
+  const mixPhotoButton = document.querySelector(".mix-photo-button");
+  const mixPrice = document.getElementById("mixPrice");
+  const priceLabel = document.getElementById("priceLabel");
+  const ageNote = document.getElementById("ageNote");
+  const productDialog = document.getElementById("productDialog");
+  const dialogTitle = document.getElementById("productDialogTitle");
+  const dialogImage = document.getElementById("productDialogImage");
+  const dialogContact = document.getElementById("productDialogContact");
+
+  function money(value) {
+    return "$" + value.toLocaleString("es-CO");
+  }
+
+  function normalizeSearch(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  }
+
+  function matchingFlavors(category) {
+    const query = normalizeSearch(flavorSearch.value);
+    return category.filter((flavor) => normalizeSearch(flavor.name).includes(query));
+  }
+
+  function renderFlavors(results) {
+    flavorGrid.innerHTML = results.map((flavor) => `
+      <button
+        class="flavor-card"
+        type="button"
+        data-flavor="${flavor.id}"
+        aria-pressed="${flavor.id === state.flavorId}"
+        style="--accent:${flavor.accent}"
+      >
+        <img src="${flavor.img}" alt="" loading="lazy" decoding="async">
+        <span class="flavor-name">${flavor.name}</span>
+        <span class="flavor-meta">${flavor.meta}</span>
+      </button>
+    `).join("");
+
+    flavorEmpty.hidden = results.length > 0;
+    flavorStatus.textContent = results.length === 1 ? "1 sabor" : `${results.length} sabores`;
+  }
+
+  function renderToppings() {
+    toppingsGrid.innerHTML = toppings.map((topping) => `
+      <button
+        class="topping-card"
+        type="button"
+        data-topping="${topping.id}"
+        aria-pressed="${state.toppings.includes(topping.id)}"
+      >
+        <img src="${topping.img}" alt="" loading="lazy" decoding="async">
+        <span>${topping.name}</span>
+      </button>
+    `).join("");
+  }
+
+  function renderSummary() {
+    const flavor = allFlavors.find((item) => item.id === state.flavorId);
+    const selectedNames = state.toppings
+      .map((id) => toppings.find((item) => item.id === id)?.name)
+      .filter(Boolean);
+
+    mixTitle.textContent = flavor.name;
+    if (mixImage.getAttribute("src") !== flavor.img) mixImage.src = flavor.img;
+    mixPhotoButton.setAttribute("aria-label", `Ampliar foto de ${flavor.name}`);
+    mixPrice.textContent = money(prices[state.size][priceKeys[flavor.meta]]);
+    priceLabel.textContent = `${flavor.meta} · ${state.size} onz`;
+    ageNote.hidden = flavor.meta !== "Con licor" && flavor.meta !== "Cremoso con licor";
+
+    const toppingSummary = selectedNames.length
+      ? selectedNames.map((name) => `<span class="pill">${name}</span>`).join("")
+      : `<span class="pill">A tu gusto</span>`;
+    if (selectedToppings.innerHTML.trim() !== toppingSummary) {
+      selectedToppings.innerHTML = toppingSummary;
+    }
+  }
+
+  modeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.mode = button.dataset.mode;
+      const category = flavors[state.mode] || allFlavors;
+      const results = matchingFlavors(category);
+      if (!category.some((flavor) => flavor.id === state.flavorId)) {
+        state.flavorId = (results[0] || category[0]).id;
+      }
+      modeButtons.forEach((option) => {
+        option.setAttribute("aria-pressed", String(option === button));
+      });
+      renderFlavors(results);
+      renderSummary();
+    });
+  });
+
+  flavorSearch.addEventListener("input", () => {
+    renderFlavors(matchingFlavors(flavors[state.mode] || allFlavors));
+  });
+
+  sizeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.size = button.dataset.size;
+      sizeButtons.forEach((option) => {
+        option.setAttribute("aria-pressed", String(option === button));
+      });
+      renderSummary();
+    });
+  });
+
+  flavorGrid.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-flavor]");
+    if (!card) return;
+    state.flavorId = card.dataset.flavor;
+    flavorGrid.querySelector('[aria-pressed="true"]')?.setAttribute("aria-pressed", "false");
+    card.setAttribute("aria-pressed", "true");
+    renderSummary();
+  });
+
+  toppingsGrid.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-topping]");
+    if (!card) return;
+    const id = card.dataset.topping;
+    const wasSelected = state.toppings.includes(id);
+    state.toppings = wasSelected
+      ? state.toppings.filter((item) => item !== id)
+      : [...state.toppings, id];
+    card.setAttribute("aria-pressed", String(!wasSelected));
+    renderSummary();
+  });
+
+  document.querySelectorAll("[data-photo]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const name = document.getElementById(button.dataset.photo).textContent;
+      const photo = button.querySelector("img");
+      const message = encodeURIComponent(`Hola, quiero consultar por ${name}.`);
+
+      dialogTitle.textContent = name;
+      dialogImage.src = photo.currentSrc || photo.src;
+      dialogImage.alt = photo.alt || `Granizado ${name}`;
+      dialogContact.href = `https://wa.me/573135520844?text=${message}`;
+      productDialog.showModal();
+    });
+  });
+
+  productDialog.addEventListener("click", (event) => {
+    if (event.target === productDialog) productDialog.close();
+  });
+
+  renderFlavors(matchingFlavors(flavors[state.mode]));
+  renderToppings();
+  renderSummary();
+</script>
+</body>
+</html>
